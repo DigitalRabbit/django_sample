@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>{% block title %}An activity tracker for you{% endblock title %} | actreco</title>
+  <meta name="description" content="{% block desc %}An activity tracker for you{% endblock %}">
+  <meta name="author" content="Digital Rabbit">
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  {% block css %}{% endblock css %}
+  <link rel="stylesheet" href="{% sass_src 'scss/styles.scss' %}?v=20170603">
+</head>
+
+{% block bodytag %}<body>{% endblock bodytag %}
+  <div id="contents">
+    {% block body %}No contents{% endblock body %}
+  </div>
+
+  {% if not 'javascript_in_head'|bootstrap_setting %}
+    {% bootstrap_javascript jquery=True %}
+  {% endif %}
+  {% block bootstrap4_extra_script %}{% endblock %}
+  {% block javascript %}{% endblock javascript %}
+  <script src="{% static 'js/smoothscroll.js' %}"></script>
+</body>
+
+</html>
