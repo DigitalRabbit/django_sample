@@ -137,6 +137,9 @@ STATICFILES_DIRS = [
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
 SASS_OUTPUT_STYLE = 'compact'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Customize setting from here
 BOOTSTRAP4 = {
     'jquery_url': '//code.jquery.com/jquery-3.2.1.min.js'
