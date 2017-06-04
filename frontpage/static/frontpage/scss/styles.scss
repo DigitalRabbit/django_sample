@@ -1,0 +1,31 @@
+#front-main {
+  background: {
+    size: cover;
+    position: center;
+    repeat: no-repeat;
+  }
+}
+
+.jumbotron-mask {
+  background: {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  padding: {
+    top: .5rem;
+    bottom: .5rem;
+  }
+}
+
+.card {
+  margin: {
+    bottom: 2em;
+  }
+}
+
+.card-img-top {
+  display: block;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
