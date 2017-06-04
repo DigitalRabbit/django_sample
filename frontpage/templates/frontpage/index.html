@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% sass_src 'frontpage/scss/styles.scss' %}?v=20170603">
+{% endblock css %}
+
+{% block body %}
+<div id="front-main" class="jumbotron jumbotron-fluid text-right" style="background-image: url({{ jumbotron.cover_image.url }});">
+  <div class="container jumbotron-mask rounded">
+    <h1 class="display-3">{{ jumbotron.title_text }}</h1> {% if jumbotron.subtitle_text %}
+    <p class="lead">{{ jumbotron.subtitle_text }}</p>
+    {% endif %} {% if jumbotron.lede_text %}
+    <hr class="my-4"> {{ jumbotron.lede_text|linebreaks }}
+    <p class="lead">
+      <a class="btn btn-warning btn-lg" href="{{ jumbotron.jump_url }}" role="button">{{ jumbotron.button_label }}　<span class="fa fa-chevron-right" aria-hidden="true"></span></a>
+    </p>
+    {% endif %}
+  </div>
+</div>
+
+{% for product in product_list %}
+<div id="{{ product.tag_id }}" class="container">
+  <div class="card">
+    <div class="card-header bg-theme text-white">
+      {{ product.title_text }}
+    </div>
+    {% if product.product_image %}
+    <img class="card-img-top" src="{{ product.product_image.url }}" alt="{{ product.title_text }}">
+    {% endif %}
+    <div class="card-block">
+      {% if product.header_text %}
+        <h4 class="card-title">{{ product.header_text }}</h4>
+      {% endif %}
+      {{ product.sentence|linebreaks }}
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock body %}
